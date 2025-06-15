@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import institute, course, candidate, round, allocation
+from routers import institute, course, candidate, round, allocation, institutequota
 
 app = FastAPI(
     title="College Counselling API",
@@ -31,3 +31,4 @@ app.include_router(course.router, prefix="/api/courses", tags=["Courses"])
 app.include_router(candidate.router, prefix="/api/candidates", tags=["Candidates"])
 app.include_router(round.router, prefix="/api/rounds", tags=["Rounds"])
 app.include_router(allocation.router, prefix="/api/allocations", tags=["Allocations"])
+app.include_router(institutequota.router, prefix="/api/institutequota", tags=["Quota"])

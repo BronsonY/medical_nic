@@ -13,9 +13,10 @@ class Institute(Base):
     short_name = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+
     # Relationships
     courses = relationship("Course", back_populates="institute")
+    quotas = relationship("InstituteQuota", back_populates="institute")
 
 
 class Course(Base):
@@ -89,3 +90,23 @@ class Allocation(Base):
     candidate = relationship("Candidate", back_populates="allocations")
     course = relationship("Course", back_populates="allocations")
     round = relationship("Round", back_populates="allocations")
+
+class InstituteQuota(Base):
+    __tablename__ = "institute_quota"
+
+    quota_id = Column(String, primary_key=True)
+    institute_name = Column(String, ForeignKey("institute_master.inst_code"), nullable=False)
+    exam_name = Column(Integer, nullable=True)
+    total_seats = Column(Integer, nullable=True)
+    ur = Column(Integer, nullable=True)
+    sc = Column(Integer, nullable=True)
+    st = Column(Integer, nullable=True)
+    obc_m = Column(Integer, nullable=True)
+    obc_mp = Column(Integer, nullable=True)
+    obc_tn = Column(Integer, nullable=True)
+    point_roster = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # Relationship
+    institute = relationship("Institute", back_populates="quotas")

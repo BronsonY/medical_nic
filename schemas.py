@@ -121,3 +121,38 @@ class AllocationOut(AllocationBase):
     class Config:
         orm_mode = True
 
+
+# ========= Institute Quota ======================
+class InstituteQuotaBase(BaseModel):
+    institute_name: str   # match the model's FK field
+    exam_name: Optional[int] = None
+    total_seats: Optional[int] = None
+    ur: Optional[int] = None
+    sc: Optional[int] = None
+    st: Optional[int] = None
+    obc_m: Optional[int] = None
+    obc_mp: Optional[int] = None
+    obc_tn: Optional[int] = None
+    point_roster: Optional[str] = None
+
+class InstituteQuotaCreate(InstituteQuotaBase):
+    quota_id: str
+
+class InstituteQuotaUpdate(BaseModel):
+    exam_name: Optional[int] = None
+    total_seats: Optional[int] = None
+    ur: Optional[int] = None
+    sc: Optional[int] = None
+    st: Optional[int] = None
+    obc_m: Optional[int] = None
+    obc_mp: Optional[int] = None
+    obc_tn: Optional[int] = None
+    point_roster: Optional[str] = None
+
+class InstituteQuotaOut(InstituteQuotaBase):
+    quota_id: str
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        orm_mode = True

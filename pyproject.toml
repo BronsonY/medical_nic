@@ -17,9 +17,10 @@ dependencies = [
   "passlib[bcrypt]",
   "python-jose",
   "pydantic",
-  "typing-extensions"
-  "psycopg2-binary"
-  "SQLAlchemy"
+  "typing-extensions",
+  "psycopg2-binary",
+  "SQLAlchemy",
+  "pydantic[email]"
 ]
 
 [build-system]
