@@ -109,6 +109,7 @@ class AllocationDetailOut(BaseModel):
     id: int
     candidate: str
     course: str
+    institute: str
     round: str
     allocate: bool
 

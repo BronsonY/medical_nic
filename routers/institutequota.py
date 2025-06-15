@@ -7,7 +7,7 @@ from database import SessionLocal
 
 router = APIRouter(
     prefix="",
-    tags=["Institute Quota"]
+    tags=["Quota"]
 )
 
 def get_db():

@@ -39,6 +39,7 @@ def read_allocations_with_details(db: Session = Depends(get_db)):
             "id": alloc.id,
             "candidate": alloc.candidate.full_name,  # Assuming Candidate model has 'name'
             "course": alloc.course.course_name,        # Assuming Course model has 'name'
+            "institute": alloc.course.institute_name,
             "round": alloc.round.round_number,      # Assuming you want round number or another field
             "allocate": alloc.allocate
         })
