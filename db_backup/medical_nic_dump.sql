@@ -1149,6 +1149,9 @@ ALTER TABLE ONLY public.round ALTER COLUMN round_id SET DEFAULT nextval('public.
 
 COPY public.allocations (id, candidate_id, course_id, round_id, allocate) FROM stdin;
 1	70114	17	1	t
+2	70115	7	1	t
+3	70116	4	1	t
+4	70117	3	1	t
 \.
 
 
@@ -6676,7 +6679,7 @@ COPY public.web_configs (config_option, config_value) FROM stdin;
 -- Name: allocations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.allocations_id_seq', 1, true);
+SELECT pg_catalog.setval('public.allocations_id_seq', 4, true);
 
 
 --
